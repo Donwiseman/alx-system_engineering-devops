@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e $(echo $PATH|cut -d : -f 1- --output-delimiter "\n") | wc -l
