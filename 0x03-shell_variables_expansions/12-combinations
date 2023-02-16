@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e $(echo {a..z}{a..z} | cut -d " " -f 1- --output-delimiter "\n") | sort | grep -v "oo"
