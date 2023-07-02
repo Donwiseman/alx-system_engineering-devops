@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times but substitute "Hi" the 9th time
+count=1
+while [ "$count" -le 10 ]
+do
+	if [ "$count" -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+((count++))
+done
+#end of script.
