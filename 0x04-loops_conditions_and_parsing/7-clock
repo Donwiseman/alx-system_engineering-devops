@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#Displays a list of the hours and minutes count up to 12 hours 59 minutes
+hour=0
+while [ "$hour" -le 12 ]
+do
+	echo "Hour: $hour"
+	mins=1
+	while [ "$mins" -le 59 ]
+	do
+		echo "$mins"
+		((mins++))
+	done
+	((hour++))
+done
