@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#list the non hidden files in the current directory removing the initial part
+#of the filename that comes before the hyphen
+LIST=$(ls)
+for i in $LIST
+do
+	filename=$(echo "$i" | cut -d '-' -f 2-)
+	echo "$filename"
+done
