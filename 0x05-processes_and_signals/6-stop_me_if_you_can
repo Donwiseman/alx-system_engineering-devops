@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Terminates a running ./4-to_infinity_and_beyond
+pkill -f "bash.*./4-to_infinity_and_beyond"
