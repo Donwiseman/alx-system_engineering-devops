@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#lists all the currrent running processes for all user
+ps aux
