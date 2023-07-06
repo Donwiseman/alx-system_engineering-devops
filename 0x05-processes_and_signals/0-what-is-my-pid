@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#echoes the PID of this script.
+echo $$
