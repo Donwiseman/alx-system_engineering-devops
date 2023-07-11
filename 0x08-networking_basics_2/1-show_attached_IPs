@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # displays all active IPv4 IPs on the machine it’s executed on
-ifconfig
+sudo apt install net-tools
+ifconfig | grep -oP 'inet \K[\d.]+'
