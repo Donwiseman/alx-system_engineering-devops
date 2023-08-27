@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Creates a key pair call school with 'betty' as passphrase
+ssh-keygen -b 4096 -f school -N "betty"
