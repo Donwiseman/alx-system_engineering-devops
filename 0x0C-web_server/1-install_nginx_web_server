@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#A script that installs nginx and start the service.
+apt-get update
+apt-get -y install nginx
+service nginx start
+echo "Hello World!" > /var/www/html/index.html
