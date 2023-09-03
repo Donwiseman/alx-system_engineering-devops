@@ -5,7 +5,7 @@ apt-get update
 apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.html
 sed -i "/^\tlocation \/ {/a \ \t\trewrite ^/redirect_me \$scheme://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-echo -e "\n\terror_page 404 /custom_404.html;\n\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n" > mysettings
+echo -e "\n\terror_page 404 /custom_404.html;\n\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}" > mysettings
 sed -i "/^\tserver_name _;/r mysettings" /etc/nginx/sites-available/default
 rm mysettings
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
