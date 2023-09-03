@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #A script that installs nginx and start the service and adds redirection.
-sudo apt-get update
-sudo apt-get -y install nginx
-echo "Hello World!" > sudo /var/www/html/index.html
-sudo sed -i "/^\tlocation \/ {/a \ \t\trewrite ^/redirect_me \$scheme://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
-sudo ufw allow 'Nginx HTTP'
-sudo service nginx start
+apt-get update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+sed -i "/^\tlocation \/ {/a \ \t\trewrite ^/redirect_me \$scheme://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+ufw allow 'Nginx HTTP'
+service nginx start
