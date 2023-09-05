@@ -7,3 +7,4 @@ echo "ENABLED=1" >> /etc/default/haproxy
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 echo -e "\nfrontend donwiseman-frontend\n\tbind *:80\n\tmode http\n\tdefault_backend donwiseman-backend\n\nbackend donwiseman-backend\n\tbalance roundrobin\n\tserver web-01 100.26.49.0:80 check\n\tserver web-02 18.207.236.171:80 check" >> /etc/haproxy/haproxy.cfg
 service haproxy start
+service haproxy restart

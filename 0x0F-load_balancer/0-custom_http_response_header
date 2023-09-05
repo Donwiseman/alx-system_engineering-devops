@@ -21,3 +21,4 @@
   unset hostname
 ufw allow 'Nginx HTTP'
 service nginx start
+service nginx restart
