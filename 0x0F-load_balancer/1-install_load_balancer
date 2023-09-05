@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Installs HAproxy for ubuntu focal and configures to balance my two servers using roundrobin
 apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.8
+add-apt-repository -y ppa:vbernat/haproxy-2.8
 apt-get -y install haproxy=2.8.\*
 echo "ENABLED=1" >> /etc/default/haproxy
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
