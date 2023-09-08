@@ -3,4 +3,4 @@
 sed -i 's/\tlisten 8080 default_server;/\tlisten 80 default_server;/' /etc/nginx/sites-enabled/default
 sed -i 's/\tlisten \[::\]:8080 default_server ipv6only=on;/\tlisten \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
 pkill -f nginx
-service nginx start
+service nginx restart
