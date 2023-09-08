@@ -2,5 +2,6 @@
 #This script debugs the given webstack ensuring listening port is 80
 sed -i 's/\tlisten 8080 default_server;/\tlisten 80 default_server;/' /etc/nginx/sites-enabled/default
 sed -i 's/\tlisten \[::\]:8080 default_server ipv6only=on;/\tlisten \[::\]:80 default_server;/' /etc/nginx/sites-enabled/default
+sed -i 's/\tserver_name localhost;/\tserver_name _;/' /etc/nginx/sites-enabled/default
 pkill nginx
 service nginx start
