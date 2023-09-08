@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#This script debugs the given webstack ensuring listening port is 80
+sed -i 's/\tlisten 8080 default_server;/\tlisten 80 default_server;/' /etc/nginx/sites-enabled/default
+sed -i 's/\tlisten \[::\]:8080 default_server ipv6only=on;/\tlisten \[::\]:80 default_server ipv6only=on;/' /etc/nginx/sites-enabled/default
+service nginx restart
