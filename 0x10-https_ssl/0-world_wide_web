@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# A script that takes in domain and subdomain names and returns their ip addrs
+# shellcheck disable=SC2086
+getIp(){
+	local val
+	local record
+	local addr
+	val=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | grep "$2.$1" | awk '{print $4,$5}')
+	record=$(echo $val | awk '{print $1}')
+	addr=$(echo $val | awk '{print $2}')
+	echo "The subdomain $2 is a $record record and points to $addr"
+}
+#condition statement to check amount of args
+if [ "$#" -eq 1 ];
+then
+	getIp "$1" "www";
+	getIp "$1" "lb-01";
+	getIp "$1" "web-01";
+	getIp "$1" "web-02";
+else
+	getIp "$1" "$2"
+fi
