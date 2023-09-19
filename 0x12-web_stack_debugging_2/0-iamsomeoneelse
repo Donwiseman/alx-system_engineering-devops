@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# A script that switches to the user passed as argument and perform whoami
+su -c whoami "$1"
