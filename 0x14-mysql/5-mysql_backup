@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Takes the rrot password and generates a MySQL dump and creates a
+# compressed archive out of it.
+if [[ "$1" ]]; then
+	mysqldump -u root -p"$1" --all-databases > backup.sql
+else
+	mysqldump -u root --skip-password --all-databases > backup.sql
+fi
+tar -czf "$(date +'%d-%m-%y').tar.gz" "backup.sql"
