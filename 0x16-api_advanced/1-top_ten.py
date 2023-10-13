@@ -23,7 +23,7 @@ def top_ten(subreddit):
         r_j = r.json()
         if r_j:
             children = r_j.get('data').get('children')
-            for i in range(0, 10):
+            for i in range(11):
                 print(children[i]['data']['title'])
     except requests.exceptions.RequestException as e:
         print('None')
