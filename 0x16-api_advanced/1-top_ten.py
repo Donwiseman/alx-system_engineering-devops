@@ -24,12 +24,8 @@ def top_ten(subreddit):
         if r_j:
             children = r_j.get('data').get('children')
             for i in range(0, 10):
-                print(children[i].get('data').get('title'))
+                print(children[i]['data']['title'])
     except requests.exceptions.RequestException as e:
         return None
     except ValueError as e:
         return None
-
-
-if __name__ == '__main__':
-    top_ten('programming')
