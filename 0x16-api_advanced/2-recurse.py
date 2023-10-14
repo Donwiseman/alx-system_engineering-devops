@@ -36,15 +36,16 @@ def recurse(subreddit, hot_list=[], tag="", count=0):
             tag = r_j.get('data').get('after')
             if (tag is not None):
                 recurse(subreddit, hot_list, tag, count)
+            return hot_list
         else:
-            print('None')
+            return None
     except requests.exceptions.RequestException as e:
-        print('None')
+        return None
     except ValueError as e:
-        print('None')
+        return None
 
 
 if __name__ == '__main__':
     mylist = []
-    recurse('programming', mylist)
+    print(len(recurse('programming', mylist)))
     print(f"Titles in list is : {len(mylist)}")
