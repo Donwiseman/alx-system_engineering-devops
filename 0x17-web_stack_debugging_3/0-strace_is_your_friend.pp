@@ -1,15 +1,13 @@
 # This is a puppet command to correct an error in the wp settings.
-file_line { 'replace_wp-locale':
-  path    => '/var/www/html/wp-settings.php',
-  line    => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.phpp\' );',
-  match   => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.phpp\' );',
-  replace => 'require_once( ABSPATH . WPINC . \'/class-wp-locale.php\' );',
+exec { 'edit_wp-settings.php':
+  command => 'sed -i "s/require_once( ABSPATH . WPINC . \'\/class-wp-locale.phpp\' );/require_once( ABSPATH . WPINC . \'\/class-wp-locale.php\' );/" /var/www/html/wp-settings.php',
+  path    => '/bin:/usr/bin', # Set the path to ensure the 'sed' command is found
+  onlyif  => 'test -f /var/www/html/wp-settings.php', # Check if the file exists before running the command
 }
 
 exec { 'restart_apache2':
   command     => '/usr/sbin/service apache2 restart',
   path        => '/usr/bin',
   refreshonly => true,
-  subscribe   => File['/var/www/html/wp-settings.php'], # Ensure this file change triggers the restart
 }
 
