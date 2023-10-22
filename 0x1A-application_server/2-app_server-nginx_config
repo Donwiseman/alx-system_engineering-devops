@@ -1,6 +1,6 @@
 server {
         listen 80;
-        server_name donwiseman.tech;
+        server_name 100.26.49.0;
 
         location /airbnb-onepage/ {
                 include proxy_params;
